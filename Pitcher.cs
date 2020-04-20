@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand_3DayStarter
 {
-    class Customer
+    class Pitcher
     {
         //member variable (HAS A:)
 

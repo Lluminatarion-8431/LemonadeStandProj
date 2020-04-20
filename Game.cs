@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand_3DayStarter
 {
-    class Game
+    class Game 
     {
+        //member variable (HAS A:)
+
+
+        //Constructor (SPAWNER)
+
+
+        //Member methods (WHAT IT DOES)
     }
 }
