@@ -56,6 +56,7 @@ namespace LemonadeStand_3DayStarter
             {
                 this.demandLevel = temperature * rainyFactor;
             } 
+            //will get member variable and return its value
         public double Temperature
         {
             get
