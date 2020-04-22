@@ -20,17 +20,20 @@ namespace LemonadeStand_3DayStarter
         //Contstructor//
 
         //generates a random double int to simulate temperature for the day
-        Random temp = new Random();
-        this.temperature = temp.Next(65, 110);
+        
         //generates a random number for the atmosphere
-        Random rnd = new Random();
-        int atmos = rnd.Next(1, 3);
+       
 
         //Member Methods//
 
         //will give value to Random(1, 3) to help generate the atomsphere of the day.
         public Weather()
         {
+            Random temp = new Random();
+            this.temperature = temp.Next(65, 110);
+            Random rnd = new Random();
+            int atmos = rnd.Next(1, 3);
+
             if (atmos == 1)
             {
                 this.forecast = "Sunny";
@@ -50,12 +53,13 @@ namespace LemonadeStand_3DayStarter
             }
             else if (this.forecast == "Cloudy")
             {
-                this.demandLevel = temperature;
+                this.demandLevel = temperature * cloudyFactor;
             }
             else
             {
                 this.demandLevel = temperature * rainyFactor;
-            } 
+            }
+        }
             //will get member variable and return its value
         public double Temperature
         {

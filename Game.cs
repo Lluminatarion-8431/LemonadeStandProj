@@ -9,6 +9,10 @@ namespace LemonadeStand_3DayStarter
     class Game 
     {
         //member variable (HAS A:)
+        protected Player player;
+        protected List<Day> days;
+        protected int currentDay;
+
 
 
         //Constructor (SPAWNER)

@@ -9,7 +9,7 @@ namespace LemonadeStand_3DayStarter
     class Pitcher
     {
         //member variable (HAS A:)
-
+        public int cupsLeftInPitcher;
 
         //Constructor (SPAWNER)
 

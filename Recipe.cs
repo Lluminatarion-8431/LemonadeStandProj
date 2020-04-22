@@ -9,6 +9,10 @@ namespace LemonadeStand_3DayStarter
     class Recipe
     {
         //member variable (HAS A:)
+        public int amountOfLemons;
+        public int amountOfSugarCubes;
+        public int amountOfIceCubes;
+        public double pricePerCup;
 
 
         //Constructor (SPAWNER)
