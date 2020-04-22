@@ -10,9 +10,10 @@ namespace LemonadeStand_3DayStarter
     {
         //Member Variables// 
         protected double temperature;
-        protected string atmosphere;
+        protected string forecast;
         protected double demandLevel;
-        protected double sunnyFactor = 1;
+        protected double sunnyFactor = 1.5;
+        protected double cloudyFactor = 1;
         protected double rainyFactor = .5;
 
 
@@ -27,25 +28,57 @@ namespace LemonadeStand_3DayStarter
 
         //Member Methods//
 
-        //this will give value to Random(1, 3) to help generate the atomsphere of the day.
+        //will give value to Random(1, 3) to help generate the atomsphere of the day.
         public Weather()
         {
             if (atmos == 1)
             {
-                this.atmosphere = "Sunny";
+                this.forecast = "Sunny";
             }
             else if (atmos == 2)
             {
-                this.atmosphere = "Cloudy";
+                this.forecast = "Cloudy";
             }
             else
             {
-                this.atmosphere = "Rainy";
+                this.forecast = "Rainy";
+            }
+            //will calculate the demand level according to the weather
+            if (this.forecast == "Sunny")
+            {
+                this.demandLevel = temperature * sunnyFactor;
+            }
+            else if (this.forecast == "Cloudy")
+            {
+                this.demandLevel = temperature;
+            }
+            else
+            {
+                this.demandLevel = temperature * rainyFactor;
+            } 
+        public double Temperature
+        {
+            get
+            {
+                return temperature;
             }
         }
-
+        public string Forecast
+        {
+            get
+            {
+                return forecast;
+            }
+        }
+        public double DemandLevel
+        {
+            get
+            {
+                return demandLevel;
+            }
+        }
         // weather conditon could affect how many customers come for the day 
-        //according to temp. if they buy or not; 
+        //according to temp. if they buy or not;
 
 
 

@@ -9,9 +9,15 @@ namespace LemonadeStand_3DayStarter
     class Day
     {
         //member variable (HAS A:)
-
+        
 
         //Constructor (SPAWNER)
+        public Day ()
+       
+
+
+
+
 
 
         //Member methods (WHAT IT DOES)
