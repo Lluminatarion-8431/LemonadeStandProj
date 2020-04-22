@@ -19,5 +19,14 @@ namespace LemonadeStand_3DayStarter
 
 
         //Member methods (WHAT IT DOES)
+        public void RunGame() //master method 
+        {
+            DisplayDay();
+
+        }
+        public void DisplayDay()
+        {
+
+        }
     }
 }

@@ -9,9 +9,9 @@ namespace LemonadeStand_3DayStarter
     class Weather
     {
         //Member Variables// 
-        protected double temperature;
-        protected string forecast;
-        protected double demandLevel;
+        public double temperature;
+        public string forecast;
+        public double demandLevel;
         protected double sunnyFactor = 1.5;
         protected double cloudyFactor = 1;
         protected double rainyFactor = .5;
