@@ -9,25 +9,33 @@ namespace LemonadeStand_3DayStarter
 {
     class Day
     {
-        //member variable (HAS A:)
+        //Member variable (what it has:)//
         public Weather weather;
         public List<Customer> customers;
         public int day;
         public double earnings;
         public double profit;
 
-        //Constructor (SPAWNER)
+        //Constructor (spawner)//
         public Day ()
         {
             day = 1;
             weather = new Weather();
             customers = new List<Customer>();
         }
-       
-        //Member methods (WHAT IT DOES)
-        public void Weather()
+
+        //Member methods (what it does)//
+        public void GetWeather(Random rnd)
         {
-            Console.WriteLine("Weather will be " + weather.temperature + " and " + weather.forecast);
+            weather.GetTemp(rnd);
+            weather.GetOvercast(rnd);
+            weather.DisplayCurrentWeather();
+        }
+        public void GetForecast(Random rnd)
+        {
+            weather.GetTemp(rnd);
+            weather.GetOvercast(rnd);
+            weather.DisplayForecast();
         }
         public void DisplayDay()
         {
@@ -36,104 +44,105 @@ namespace LemonadeStand_3DayStarter
         public void GetTotalCustomers(Random rnd, Recipe recipe)//customers that come out based on weather conditions
         {
             Demand demand = new Demand(recipe, weather);
-            if (weather.forecast == "Sunny")
+            if (weather.temperature == "Hot" && weather.condition == "and sunny")
             {
-                int customerNumber = rnd.Next(20, 40);
+                int customerNumber = rnd.Next(35, 40);
                 for (int i = 0; i < customerNumber; i++)
                 {
-                    customer.Add(new Customer(demand));
+                    customers.Add(new Customer(demand));
                 }
             }
-            //else if (weather.forecast == "cloudy")
-            //{
-            //    int customerNumber = rnd.Next(30, 34);
-            //    for (int i = 0; i < customerNumber; i++)
-            //    {
-            //        customer.Add(new Customer(demand));
-            //    }
-            //}
-            //else if (weather.temperature == "Hot" && weather.condition == "with thunderstorms")
-            //{
-            //    int customerNumber = rnd.Next(20, 29);
-            //    for (int i = 0; i < customerNumber; i++)
-            //    {
-            //        customer.Add(new Customer(demand));
-            //    }
-            //}
-            //else if (weather.temperature == "Warm" && weather.condition == "and sunny")
-            //{
-            //    int customerNumber = rnd.Next(25, 31);
-            //    for (int i = 0; i < customerNumber; i++)
-            //    {
-            //        customer.Add(new Customer(demand));
-            //    }
-            //}
-            //else if (weather.temperature == "Warm" && weather.condition == "and cloudy")
-            //{
-            //    int customerNumber = rnd.Next(20, 24);
-            //    for (int i = 0; i < customerNumber; i++)
-            //    {
-            //        customer.Add(new Customer(demand));
-            //    }
-            //}
-            else if (weather.forecast == "Cloudy")
+            else if (weather.temperature == "Hot" && weather.condition == "and cloudy")
             {
-                int customerNumber = rnd.Next(15, 30);
+                int customerNumber = rnd.Next(30, 34);
                 for (int i = 0; i < customerNumber; i++)
                 {
-                    customer.Add(new Customer(demand));
+                    customers.Add(new Customer(demand));
                 }
             }
-            //else if (weather.temperature == "Cold" && weather.condition == "and sunny")
-            //{
-            //    int customerNumber = rnd.Next(5, 11);
-            //    for (int i = 0; i < customerNumber; i++)
-            //    {
-            //        customer.Add(new Customer(demand));
-            //    }
-            //}
-            //else if (weather.temperature == "Cold" && weather.condition == "and cloudy")
-            //{
-            //    int customerNumber = rnd.Next(0, 10);
-            //    for (int i = 0; i < customerNumber; i++)
-            //    {
-            //        customer.Add(new Customer(demand));
-            //    }
-            //}
-            else if (weather.forecast == "rainy")
+            else if (weather.temperature == "Hot" && weather.condition == "with thunderstorms")
             {
-                int customerNumber = rnd.Next(0, 15);
+                int customerNumber = rnd.Next(20, 29);
                 for (int i = 0; i < customerNumber; i++)
                 {
-                    customer.Add(new Customer(demand));
+                    customers.Add(new Customer(demand));
+                }
+            }
+            else if (weather.temperature == "Warm" && weather.condition == "and sunny")
+            {
+                int customerNumber = rnd.Next(25, 31);
+                for (int i = 0; i < customerNumber; i++)
+                {
+                    customers.Add(new Customer(demand));
+                }
+            }
+            else if (weather.temperature == "Warm" && weather.condition == "and cloudy")
+            {
+                int customerNumber = rnd.Next(20, 24);
+                for (int i = 0; i < customerNumber; i++)
+                {
+                    customers.Add(new Customer(demand));
+                }
+            }
+            else if (weather.temperature == "Warm" && weather.condition == "with thunderstorms")
+            {
+                int customerNumber = rnd.Next(15, 19);
+                for (int i = 0; i < customerNumber; i++)
+                {
+                    customers.Add(new Customer(demand));
+                }
+            }
+            else if (weather.temperature == "Cold" && weather.condition == "and sunny")
+            {
+                int customerNumber = rnd.Next(5, 11);
+                for (int i = 0; i < customerNumber; i++)
+                {
+                    customers.Add(new Customer(demand));
+                }
+            }
+            else if (weather.temperature == "Cold" && weather.condition == "and cloudy")
+            {
+                int customerNumber = rnd.Next(0, 10);
+                for (int i = 0; i < customerNumber; i++)
+                {
+                    customers.Add(new Customer(demand));
+                }
+            }
+            else if (weather.temperature == "Cold" && weather.condition == "with thunderstorms")
+            {
+                int customerNumber = rnd.Next(0, 4);
+                for (int i = 0; i < customerNumber; i++)
+                {
+                    customers.Add(new Customer(demand));
                 }
             }
         }
 
         public double CalculateDaysEarnings(Player player, Recipe recipe)
         {
-            dayEarning = recipe.pricePerCup * player.soldInventory;
-            return dayEarning;
+            earnings = recipe.pricePerCup * player.soldInventory;
+            return earnings;
         }
         public double CalculateDayProfit(Store store)
         {
-            dayProfit = dayEarning - store.totalExpense;
-            return dayProfit;
+            profit = earnings - store.totalExpense;
+            return profit;
         }
         public void DisplayDayProfit()
         {
-            if (dayProfit <= 0)
+            if (profit <= 0)
             {
-                Console.WriteLine($"You lost money today! You lost ${dayProfit}.");
+                Console.WriteLine($"You lost money today! You lost ${profit}.");
                 Console.ReadKey();
             }
             else
             {
-                Console.WriteLine($"You made ${dayProfit} today!");
+                Console.WriteLine($"You made ${profit} today!");
                 Console.ReadKey();
             }
+
         }
-    }
+    
 
 
         //Make a method that will add some customers to the customer list

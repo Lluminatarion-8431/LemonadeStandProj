@@ -8,21 +8,17 @@ namespace LemonadeStand_3DayStarter
 {
     class Customer
     {
-        //member variable (HAS A:)
-        private List<string> names;
-        public string name;
-
-        //Constructor (SPAWNER)
-
-
-        //Member methods (WHAT IT DOES)
+        //Member variable (what it has:)//
         public double buyProbability;
 
+        //Constructor (spawner)//
+
+        //Member methods (what it does)//
         public Customer(Demand demand)
         {
             CustomerBuyProbability(demand);
         }
-        public double CustomerBuyProbability()
+        public double CustomerBuyProbability(Demand demand)
         {
             Random rnd = new Random();
             buyProbability = rnd.Next(50, 90) / demand.priceDemand / demand.weatherDemand;

@@ -8,78 +8,67 @@ namespace LemonadeStand_3DayStarter
 {
     class Weather
     {
-        //Member Variables// 
-        public double temperature;
-        public string forecast;
-        //public double demandLevel;
-       
+        //Member variable (what it has:)// 
+        public string temperature;
+        public string condition;
 
-
-        //Contstructor//
-
-        //generates a random double int to simulate temperature for the day
-        
-        //generates a random number for the atmosphere
-       
-
-        //Member Methods//
-
-        //will give value to Random(1, 3) to help generate the atomsphere of the day.
+        //Constructor (spawner)//
         public Weather()
         {
-            Random rnd = new Random();
-            int atmos = rnd.Next(1, 3);
 
-            if (atmos == 1)
-            {
-                this.forecast = "Sunny";
-            }
-            else if (atmos == 2)
-            {
-                this.forecast = "Cloudy";
-            }
-            else
-            {
-                this.forecast = "Rainy";
-            }
-            ////will calculate the  according to the weather
-            //if (this.forecast == "Sunny")
-            //{
-            //    this.demandLevel = temperature * sunnyFactor;
-            //}
-            //else if (this.forecast == "Cloudy")
-            //{
-            //    this.demandLevel = temperature * cloudyFactor;
-            //}
-            //else
-            //{
-            //    this.demandLevel = temperature * rainyFactor;
-            }
         }
-            //will get member variable and return its value
-        public double Temperature
+
+        //Member methods (what it does)//
+        public int GetTemp(Random rnd) //will display a random temperature
         {
-            get
+            int temperature = rnd.Next(1, 4);
+
+            switch (temperature)
             {
-                return temperature;
+                case 1:
+                    this.temperature = "Hot";
+                    break;
+                case 2:
+                    this.temperature = "Warm";
+                    break;
+                case 3:
+                    this.temperature = "Cold";
+                    break;
+                default:
+                    Console.WriteLine("There was an error getting the report");
+                    break;
             }
+            return temperature;
         }
-        public string Forecast
+        public int GetOvercast(Random rnd)//will randomly display percipitation
         {
-            get
+            int condition = rnd.Next(1, 4);
+
+            switch (condition)
             {
-                return forecast;
+                case 1:
+                    this.condition = "sunny";
+                    break;
+                case 2:
+                    this.condition = "cloudy";
+                    break;
+                case 3:
+                    this.condition = "rainy";
+                    break;
+                default:
+                    Console.WriteLine("There was an error getting the report");
+                    break;
             }
+            return condition;
         }
-        //public double DemandLevel
-        //{
-        //    get
-        //    {
-        //        return demandLevel;
-        //    }
-        //}
-        // weather conditon could affect how many customers come for the day 
-        //according to temp. if they buy or not;
+        public void DisplayCurrentWeather()
+        {
+            Console.WriteLine($"Today's forcast is: {temperature} {condition}\n");
+        }
+        public void DisplayForecast()
+        {
+            Console.WriteLine($"The weather for tomorrow is: {temperature} {condition}\n");
+        }
 
 
 

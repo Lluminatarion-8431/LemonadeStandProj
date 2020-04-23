@@ -8,16 +8,16 @@ namespace LemonadeStand_3DayStarter
 {
     class Pitcher : Item
     {
-        //member variable (HAS A:)
+        //Member variable (what it has:)//
         public int cupsLeftInPitcher;
 
-        //Constructor (SPAWNER)
+        //Constructor (spawner)//
         public Pitcher()
         {
             name = "pitcher";
         }
 
-        //Member methods (WHAT IT DOES)
+        //Member methods (what it does)//
     }
 
 

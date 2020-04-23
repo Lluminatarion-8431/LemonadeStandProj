@@ -8,7 +8,7 @@ namespace LemonadeStand_3DayStarter
 {
     class Recipe
     {
-        //member variable (HAS A:)
+        //Member variable (what it has:)//
         public int amountOfLemons;
         public int amountOfSugarCubes;
         public int amountOfIceCubes;
@@ -16,13 +16,13 @@ namespace LemonadeStand_3DayStarter
         public int cup;
 
 
-        //Constructor (SPAWNER)
+        //Constructor (spawner)//
         public Recipe ()
         {
 
         }
 
-        //Member methods (WHAT IT DOES)
+        //Member methods (what it does)//
         public void RecipeStart(Player player)
         {
             Console.WriteLine("What would you like to do: 'make' recipe, 'check' inventory, 'set' lemonade price, 'display' recipe, 'leave'?");
@@ -89,7 +89,7 @@ namespace LemonadeStand_3DayStarter
                     }
                     else
                     {
-                        Console.WriteLine("You didn't enter a price for your lemonade! You must enter a price for your lemonade.");
+                        Console.WriteLine("You must enter a price for your lemonade.");
                         Console.ReadKey();
                         Console.Clear();
                         RecipeStart(player);
@@ -97,7 +97,7 @@ namespace LemonadeStand_3DayStarter
                     break;
 
                 default:
-                    Console.WriteLine("User error, please select one of the options.");
+                    Console.WriteLine("Please select one of the options.");
                     Console.ReadKey();
                     Console.Clear();
                     RecipeStart(player);

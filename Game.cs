@@ -8,7 +8,7 @@ namespace LemonadeStand_3DayStarter
 {
     class Game
     {
-        //member variable (HAS A:)
+        //Member variable (what it has:)//
         public Player player;
         //public UserInterface UI;
         public Day runDay;
@@ -20,7 +20,7 @@ namespace LemonadeStand_3DayStarter
 
 
 
-        //Constructor (SPAWNER)
+        //Constructor (spawner)//
         public Game()
         {
             player = new Player();
@@ -33,7 +33,7 @@ namespace LemonadeStand_3DayStarter
             player1 = new Human();
         }
 
-        //Member methods (WHAT IT DOES)
+        //Member methods (what it does)//
         public void RunGame() //master method 
         {
             ChooseGameMode();

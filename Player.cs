@@ -8,7 +8,7 @@ namespace LemonadeStand_3DayStarter
 {
     class Player
     {
-        // member variables (HAS A)
+        //Member variable (what it has:)//
         public Item item;
         public Inventory inventory;
         public Wallet wallet;
@@ -16,14 +16,14 @@ namespace LemonadeStand_3DayStarter
         public Pitcher pitcher;
         public int soldInventory;
 
-        // constructor (SPAWNER)
+        //Constructor (spawner)//
         public Player()
         {
             inventory = new Inventory();
             wallet = new Wallet();
         }
 
-        // member methods (CAN DO)
+        //Member methods (what it does)//
         public int SellLemonade(List<Customer> customer)
         {
             soldInventory = 0;
@@ -31,7 +31,7 @@ namespace LemonadeStand_3DayStarter
             {
                 if (item.supplies[4].Count == 0)
                 {
-                    Console.WriteLine("You sold out and have no more cups of lemonade!");
+                    Console.WriteLine("You sold out of cups of lemonade!");
                     Console.ReadKey();
                     Console.Clear();
                     break;
@@ -68,7 +68,6 @@ namespace LemonadeStand_3DayStarter
                 item.supplies[4].RemoveAt(0);
             }
         }
-        
         
 
     }

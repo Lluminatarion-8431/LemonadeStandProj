@@ -8,13 +8,13 @@ namespace LemonadeStand_3DayStarter
 {
     class Inventory
     {
-        // member variables (HAS A)
+        //Member variable (what it has:)//
         public List<Lemon> lemons;
         public List<SugarCube> sugarCubes;
         public List<IceCube> iceCubes;
         public List<Cup> cups;
 
-        // constructor (SPAWNER)
+        //Constructor (spawner)//
         public Inventory()
         {
             lemons = new List<Lemon>();
@@ -23,7 +23,7 @@ namespace LemonadeStand_3DayStarter
             cups = new List<Cup>();
         }
 
-        // member methods (CAN DO)
+        //Member methods (what it does)//
         public void AddLemonsToInventory(int numberOfLemons)
         {
             for(int i = 0; i < numberOfLemons; i++)
