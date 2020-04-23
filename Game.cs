@@ -16,6 +16,7 @@ namespace LemonadeStand_3DayStarter
         public Recipe recipe;
         public Random rnd;
         public Weather weather;
+        public int player1;
 
 
 
@@ -29,11 +30,13 @@ namespace LemonadeStand_3DayStarter
             recipe = new Recipe();
             rnd = new Random();
             weather = new Weather();
+            player1 = new Human();
         }
 
         //Member methods (WHAT IT DOES)
         public void RunGame() //master method 
         {
+            ChooseGameMode();
             runDay.DisplayDay();
             player.item.DisplayInventory();
             store.StoreStart(player);
@@ -57,6 +60,31 @@ namespace LemonadeStand_3DayStarter
             Console.Clear();
             EndOfDay();
             NewDay();
+        }
+
+        public void ChooseGameMode()
+        {
+            Console.WriteLine("Please enter 1 for HvC, or enter 2 for HvH:");
+
+            string userInput = Console.ReadLine();
+            // what if they don't type in 1 or 2?
+
+            if (userInput == "1")
+            {
+                // HvC game
+                player2 = new Computer();
+            }
+            else if (userInput == "2")
+            {
+                // HvH game
+                player2 = new Human();
+            }
+            else
+            {
+                // TODO: try again?
+                Console.WriteLine("Try Again....");
+
+            }
         }
         public double CalculateDayOneProfit(double dayProfit)
         {
