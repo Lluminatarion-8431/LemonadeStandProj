@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand_3DayStarter
 {
-    class Wallet
+    class Wallet : Item
     {
-        private double money;
+        public double money;
 
         public double Money
         {

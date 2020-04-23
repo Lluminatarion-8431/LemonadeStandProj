@@ -12,9 +12,7 @@ namespace LemonadeStand_3DayStarter
         public double temperature;
         public string forecast;
         public double demandLevel;
-        protected double sunnyFactor = 1.5;
-        protected double cloudyFactor = 1;
-        protected double rainyFactor = .5;
+       
 
 
         //Contstructor//
@@ -29,8 +27,6 @@ namespace LemonadeStand_3DayStarter
         //will give value to Random(1, 3) to help generate the atomsphere of the day.
         public Weather()
         {
-            Random temp = new Random();
-            this.temperature = temp.Next(65, 110);
             Random rnd = new Random();
             int atmos = rnd.Next(1, 3);
 
@@ -46,18 +42,18 @@ namespace LemonadeStand_3DayStarter
             {
                 this.forecast = "Rainy";
             }
-            //will calculate the demand level according to the weather
-            if (this.forecast == "Sunny")
-            {
-                this.demandLevel = temperature * sunnyFactor;
-            }
-            else if (this.forecast == "Cloudy")
-            {
-                this.demandLevel = temperature * cloudyFactor;
-            }
-            else
-            {
-                this.demandLevel = temperature * rainyFactor;
+            ////will calculate the  according to the weather
+            //if (this.forecast == "Sunny")
+            //{
+            //    this.demandLevel = temperature * sunnyFactor;
+            //}
+            //else if (this.forecast == "Cloudy")
+            //{
+            //    this.demandLevel = temperature * cloudyFactor;
+            //}
+            //else
+            //{
+            //    this.demandLevel = temperature * rainyFactor;
             }
         }
             //will get member variable and return its value
@@ -75,13 +71,13 @@ namespace LemonadeStand_3DayStarter
                 return forecast;
             }
         }
-        public double DemandLevel
-        {
-            get
-            {
-                return demandLevel;
-            }
-        }
+        //public double DemandLevel
+        //{
+        //    get
+        //    {
+        //        return demandLevel;
+        //    }
+        //}
         // weather conditon could affect how many customers come for the day 
         //according to temp. if they buy or not;
 
