@@ -68,6 +68,8 @@ namespace LemonadeStand_3DayStarter
                 item.supplies[4].RemoveAt(0);
             }
         }
+        
+        
 
     }
 }

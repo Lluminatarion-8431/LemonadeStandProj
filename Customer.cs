@@ -22,7 +22,7 @@ namespace LemonadeStand_3DayStarter
         {
             CustomerBuyProbability(demand);
         }
-        public double CustomerBuyProbability(Demand demand)
+        public double CustomerBuyProbability()
         {
             Random rnd = new Random();
             buyProbability = rnd.Next(50, 90) / demand.priceDemand / demand.weatherDemand;

@@ -11,7 +11,7 @@ namespace LemonadeStand_3DayStarter
         //Member Variables// 
         public double temperature;
         public string forecast;
-        public double demandLevel;
+        //public double demandLevel;
        
 
 

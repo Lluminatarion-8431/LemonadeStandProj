@@ -25,15 +25,13 @@ namespace LemonadeStand_3DayStarter
         //Member methods (WHAT IT DOES)
         public void RecipeStart(Player player)
         {
-            Console.WriteLine("RECIPE MAKER\n");
-            Console.WriteLine("Time to make your recipe for the day! A basic lemonade recipe calls for 1 lemon, 2 sugars, and 2 ice, in one cup. You will be deciding how much of each ingredient to put in each individual cup and then you will decide how many cups to sell that day. Remember, the weather and the price will affect how many customers buy your lemonade. First, make your recipe, then make sure to set your price.\n\n");
             Console.WriteLine("What would you like to do: 'make' recipe, 'check' inventory, 'set' lemonade price, 'display' recipe, 'leave'?");
             string userInput = Console.ReadLine();
 
             switch (userInput)
             {
                 case "make":
-                    player.inventory.DisplayInventory();
+                    player.item.DisplayInventory();
                     amountOfLemons = PickLemons();
                     CheckLemonInventory(player, amountOfLemons);
                     amountOfSugarCubes = PickSugar();
@@ -53,18 +51,18 @@ namespace LemonadeStand_3DayStarter
                     RemoveIce(player, totalIce);
                     RemoveCup(player, cup);
                     MakeLemonade(player, cup);
-                    player.inventory.DisplayInventory();
+                    player.item.DisplayInventory();
                     Console.Clear();
                     RecipeStart(player);
                     break;
 
                 case "check":
-                    player.inventory.DisplayInventory();
+                    player.item.DisplayInventory();
                     Console.Clear();
                     RecipeStart(player);
                     break;
                 case "set":
-                    if (player.inventory.supplies[4].Count > 0)
+                    if (player.item.supplies[4].Count > 0)
                     {
                         DisplayRecipe(amountOfLemons, amountOfSugarCubes, amountOfIceCubes, cup);
                         PickLemonadePrice();
@@ -73,7 +71,7 @@ namespace LemonadeStand_3DayStarter
                     }
                     else
                     {
-                        Console.WriteLine("You haven't made any lemonade yet, what are you ging to sell?");
+                        Console.WriteLine("You have to make your lemonade");
                         Console.ReadKey();
                         Console.Clear();
                         RecipeStart(player);
@@ -91,7 +89,7 @@ namespace LemonadeStand_3DayStarter
                     }
                     else
                     {
-                        Console.WriteLine("Your didn't enter a price for your lemonade! You must enter a price for your lemonade.");
+                        Console.WriteLine("You didn't enter a price for your lemonade! You must enter a price for your lemonade.");
                         Console.ReadKey();
                         Console.Clear();
                         RecipeStart(player);
@@ -108,13 +106,13 @@ namespace LemonadeStand_3DayStarter
         }
         public int PickLemons()
         {
-            Console.WriteLine("How many lemons would you like to put in your each cup?");
+            Console.WriteLine("How many lemons would you like?");
             amountOfLemons = int.Parse(Console.ReadLine());
             return amountOfLemons;
         }
         public bool CheckLemonInventory(Player player, int amountOfLemons)// TODO
         {//program will catch the user the first time and no matter what number is entered the second time, will throw error. 
-            if (player.inventory.supplies[0].Count < amountOfLemons)
+            if (player.item.supplies[0].Count < amountOfLemons)
             {
                 Console.WriteLine("You do not have that many lemons!");
                 PickLemons();
@@ -123,13 +121,13 @@ namespace LemonadeStand_3DayStarter
         }
         public int PickSugar()
         {
-            Console.WriteLine("\nHow much sugar would you like to put in each cup?");
+            Console.WriteLine("\nHow much sugar would you like?");
             amountOfSugarCubes = int.Parse(Console.ReadLine());
             return amountOfSugarCubes;
         }
         public bool CheckSugarInventory(Player player, int sugarCount)
         {//program will catch the user the first time and no matter what number is entered the second time, will throw error.
-            if (player.inventory.supplies[1].Count < amountOfSugarCubes)
+            if (player.item.supplies[1].Count < amountOfSugarCubes)
             {
                 Console.WriteLine("You do not have that much sugar!");
                 PickSugar();
@@ -138,13 +136,13 @@ namespace LemonadeStand_3DayStarter
         }
         public int PickIce()
         {
-            Console.WriteLine("\nHow much ice would you like to put in each cup?");
+            Console.WriteLine("\nHow much ice would you like?");
             amountOfIceCubes = int.Parse(Console.ReadLine());
             return amountOfIceCubes;
         }
         public bool CheckIceInventory(Player player, int iceCount)
         {//program will catch the user the first time and no matter what number is entered the second time, will throw error.
-            if (player.inventory.supplies[2].Count < iceCount)
+            if (player.item.supplies[2].Count < iceCount)
             {
                 Console.WriteLine("You do not have that much ice!");
                 PickIce();
@@ -159,7 +157,7 @@ namespace LemonadeStand_3DayStarter
         }
         public bool CheckCupInventory(Player player, int cupCount)
         {//program will catch the user the first time and no matter what number is entered the second time, will throw error.
-            if (player.inventory.supplies[2].Count < cupCount)
+            if (player.item.supplies[2].Count < cupCount)
             {
                 Console.WriteLine("You do not have that many cups!");
                 PickCup();
@@ -185,42 +183,42 @@ namespace LemonadeStand_3DayStarter
         {
             for (int i = 0; i < lemon; i++)
             {
-                player.inventory.supplies[0].RemoveAt(0);
+                player.item.supplies[0].RemoveAt(0);
             }
         }
         public void RemoveSugar(Player player, int sugar)
         {
             for (int i = 0; i < sugar; i++)
             {
-                player.inventory.supplies[1].RemoveAt(0);
+                player.item.supplies[1].RemoveAt(0);
             }
         }
         public void RemoveIce(Player player, int ice)
         {
             for (int i = 0; i < ice; i++)
             {
-                player.inventory.supplies[2].RemoveAt(0);
+                player.item.supplies[2].RemoveAt(0);
             }
         }
         public void RemoveCup(Player player, int cup)
         {
             for (int i = 0; i < cup; i++)
             {
-                player.inventory.supplies[3].RemoveAt(0);
+                player.item.supplies[3].RemoveAt(0);
             }
         }
         public void MakeLemonade(Player player, int cup)
         {
             for (int i = 0; i < cup; i++)
             {
-                player.inventory.AddLemonade(new Lemonade());
+                player.item.AddPitcher(new Pitcher());
             }
         }
         public double PickLemonadePrice()
         {
             Console.WriteLine("How much would you like to sell each cup of your lemonade for?");
-            lemonadePrice = double.Parse(Console.ReadLine());
-            return lemonadePrice;
+            pricePerCup = double.Parse(Console.ReadLine());
+            return pricePerCup;
         }
         public void DisplayRecipe(int amountOfLemons, int amountOfSugarCubes, int amountOfIceCubes, int cup)
         {
