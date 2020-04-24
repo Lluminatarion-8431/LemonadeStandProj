@@ -9,18 +9,15 @@ namespace LemonadeStand_3DayStarter
     class Player
     {
         //Member variable (what it has:)//
-        public Item item;
         public Inventory inventory;
-        public Wallet wallet;
-        public Recipe recipe;
-        public Pitcher pitcher;
+        //public Wallet wallet;
         public int soldInventory;
 
         //Constructor (spawner)//
         public Player()
         {
             inventory = new Inventory();
-            wallet = new Wallet();
+            //wallet = new Wallet();
         }
 
         //Member methods (what it does)//
@@ -29,7 +26,7 @@ namespace LemonadeStand_3DayStarter
             soldInventory = 0;
             for (int i = 0; i < customer.Count; i++)
             {
-                if (item.supplies[4].Count == 0)
+                if (inventory.supplies[4].Count == 0)
                 {
                     Console.WriteLine("You sold out of cups of lemonade!");
                     Console.ReadKey();
@@ -41,19 +38,19 @@ namespace LemonadeStand_3DayStarter
                     if (customer[i].buyProbability >= 75)
                     {
                         soldInventory++;
-                        item.supplies[4].RemoveAt(0);
+                        inventory.supplies[4].RemoveAt(0);
                     }
                     else if ((customer[i].buyProbability <= 74) && (customer[i].buyProbability >= 50))
                     {
                         soldInventory++;
-                        item.supplies[4].RemoveAt(0);
+                        inventory.supplies[4].RemoveAt(0);
                     }
                     else if ((customer[i].buyProbability <= 49) && (customer[i].buyProbability >= 25))
                     {
                         soldInventory++;
-                        item.supplies[4].RemoveAt(0);
+                        inventory.supplies[4].RemoveAt(0);
                     }
-                    else if (customer[i].buyProbability <= 24)
+                    else if(customer[i].buyProbability <= 24)
                     {
                         //no sale
                     }
@@ -63,9 +60,9 @@ namespace LemonadeStand_3DayStarter
         }
         public void CheckSpoilInventory()
         {
-            while (item.supplies[4].Count > 0)
+            while (inventory.supplies[4].Count > 0)
             {
-                item.supplies[4].RemoveAt(0);
+                inventory.supplies[4].RemoveAt(0);
             }
         }
         

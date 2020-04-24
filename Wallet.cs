@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace LemonadeStand_3DayStarter
 {
-    class Wallet : Item
+    class Wallet
     {
         private double money;
-
+         
         public double Money
         {
             get
             {
-                return money;
+                return Money;
             }
         }
 
@@ -23,9 +24,9 @@ namespace LemonadeStand_3DayStarter
             money = 20.00;
         }
 
-        public void PayMoneyForItems(double transactionAmount)
-        {
-            money -= transactionAmount;
-        }
+    //    public void PayMoneyForItems(double totalExpense)
+    //    {
+    //        money -= totalExpense;
+    //    }
     }
 }

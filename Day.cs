@@ -10,6 +10,7 @@ namespace LemonadeStand_3DayStarter
     class Day
     {
         //Member variable (what it has:)//
+        
         public Weather weather;
         public List<Customer> customers;
         public int day;
@@ -41,7 +42,9 @@ namespace LemonadeStand_3DayStarter
         {
             Console.WriteLine($"Today is Day {day}\n\n");
         }
-        public void GetTotalCustomers(Random rnd, Recipe recipe)//customers that come out based on weather conditions
+
+        //will generate a random amount of customers according weather and temp.
+        public void GetTotalCustomers(Random rnd, Recipe recipe)
         {
             Demand demand = new Demand(recipe, weather);
             if (weather.temperature == "Hot" && weather.condition == "and sunny")

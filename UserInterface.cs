@@ -6,22 +6,18 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand_3DayStarter
 {
-    static class UserInterface
+    public class UserInterface
     {
-        public static int GetNumberOfItems(string itemsToGet)
+        public UserInterface()
         {
-            bool userInputIsAnInteger = false;
-            int quantityOfItem = -1;
 
-            while (!userInputIsAnInteger || quantityOfItem < 0)
-            {
-                Console.WriteLine("How many " + itemsToGet + " would you like to buy?");
-                Console.WriteLine("Please enter a positive integer (or 0 to cancel):");
+        }
+        public void WelcomePlayer()
+        {
 
-                userInputIsAnInteger = Int32.TryParse(Console.ReadLine(), out quantityOfItem);
-            }
-
-            return quantityOfItem;
+            Console.WriteLine("You have 7 days with the lemonade stand you have just opened. You have complete control over how you're business is run, including choosing, inventory and buying supplies. Buy your supplies, set your recipe, and start making money!\n\n You will start off the game with $20.00 and will have the ability to buy your supplies, lemons, sugar cubes, ice cubea, and cups. After buying your supplies you get to decide your recipe and start making money.\n\nGood luck!\n\nSupply Prices:\nLemons: $.15\nSugar: $.05\nIce: $.05\nCups: $.10\n\n Press enter to continue!");
+            Console.ReadLine();
         }
     }
+    
 }

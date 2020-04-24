@@ -31,7 +31,7 @@ namespace LemonadeStand_3DayStarter
             switch (userInput)
             {
                 case "make":
-                    player.item.DisplayInventory();
+                    player.inventory.DisplayInventory();
                     amountOfLemons = PickLemons();
                     CheckLemonInventory(player, amountOfLemons);
                     amountOfSugarCubes = PickSugar();
@@ -51,18 +51,18 @@ namespace LemonadeStand_3DayStarter
                     RemoveIce(player, totalIce);
                     RemoveCup(player, cup);
                     MakeLemonade(player, cup);
-                    player.item.DisplayInventory();
+                    player.inventory.DisplayInventory();
                     Console.Clear();
                     RecipeStart(player);
                     break;
 
                 case "check":
-                    player.item.DisplayInventory();
+                    player.inventory.DisplayInventory();
                     Console.Clear();
                     RecipeStart(player);
                     break;
                 case "set":
-                    if (player.item.supplies[4].Count > 0)
+                    if (player.inventory.supplies[4].Count > 0)
                     {
                         DisplayRecipe(amountOfLemons, amountOfSugarCubes, amountOfIceCubes, cup);
                         PickLemonadePrice();
@@ -112,7 +112,7 @@ namespace LemonadeStand_3DayStarter
         }
         public bool CheckLemonInventory(Player player, int amountOfLemons)// TODO
         {//program will catch the user the first time and no matter what number is entered the second time, will throw error. 
-            if (player.item.supplies[0].Count < amountOfLemons)
+            if (player.inventory.supplies[0].Count < amountOfLemons)
             {
                 Console.WriteLine("You do not have that many lemons!");
                 PickLemons();
@@ -127,7 +127,7 @@ namespace LemonadeStand_3DayStarter
         }
         public bool CheckSugarInventory(Player player, int sugarCount)
         {//program will catch the user the first time and no matter what number is entered the second time, will throw error.
-            if (player.item.supplies[1].Count < amountOfSugarCubes)
+            if (player.inventory.supplies[1].Count < amountOfSugarCubes)
             {
                 Console.WriteLine("You do not have that much sugar!");
                 PickSugar();
@@ -142,7 +142,7 @@ namespace LemonadeStand_3DayStarter
         }
         public bool CheckIceInventory(Player player, int iceCount)
         {//program will catch the user the first time and no matter what number is entered the second time, will throw error.
-            if (player.item.supplies[2].Count < iceCount)
+            if (player.inventory.supplies[2].Count < iceCount)
             {
                 Console.WriteLine("You do not have that much ice!");
                 PickIce();
@@ -157,7 +157,7 @@ namespace LemonadeStand_3DayStarter
         }
         public bool CheckCupInventory(Player player, int cupCount)
         {//program will catch the user the first time and no matter what number is entered the second time, will throw error.
-            if (player.item.supplies[2].Count < cupCount)
+            if (player.inventory.supplies[2].Count < cupCount)
             {
                 Console.WriteLine("You do not have that many cups!");
                 PickCup();
@@ -183,35 +183,35 @@ namespace LemonadeStand_3DayStarter
         {
             for (int i = 0; i < lemon; i++)
             {
-                player.item.supplies[0].RemoveAt(0);
+                player.inventory.supplies[0].RemoveAt(0);
             }
         }
         public void RemoveSugar(Player player, int sugar)
         {
             for (int i = 0; i < sugar; i++)
             {
-                player.item.supplies[1].RemoveAt(0);
+                player.inventory.supplies[1].RemoveAt(0);
             }
         }
         public void RemoveIce(Player player, int ice)
         {
             for (int i = 0; i < ice; i++)
             {
-                player.item.supplies[2].RemoveAt(0);
+                player.inventory.supplies[2].RemoveAt(0);
             }
         }
         public void RemoveCup(Player player, int cup)
         {
             for (int i = 0; i < cup; i++)
             {
-                player.item.supplies[3].RemoveAt(0);
+                player.inventory.supplies[3].RemoveAt(0);
             }
         }
         public void MakeLemonade(Player player, int cup)
         {
             for (int i = 0; i < cup; i++)
             {
-                player.item.AddPitcher(new Pitcher());
+                player.inventory.AddPitcher(new Pitcher());
             }
         }
         public double PickLemonadePrice()

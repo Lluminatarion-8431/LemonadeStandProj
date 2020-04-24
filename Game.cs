@@ -10,7 +10,7 @@ namespace LemonadeStand_3DayStarter
     {
         //Member variable (what it has:)//
         public Player player;
-        //public UserInterface UI;
+        public UserInterface UI;
         public Day runDay;
         public Store store;
         public Recipe recipe;
@@ -24,7 +24,7 @@ namespace LemonadeStand_3DayStarter
         public Game()
         {
             player = new Player();
-            //UI = new UserInterface();
+            UI = new UserInterface();
             runDay = new Day();
             store = new Store();
             recipe = new Recipe();
@@ -38,17 +38,17 @@ namespace LemonadeStand_3DayStarter
         {
             ChooseGameMode();
             runDay.DisplayDay();
-            player.item.DisplayInventory();
+            player.inventory.DisplayInventory();
             store.StoreStart(player);
             Console.Clear();
             runDay.GetWeather(rnd);
             runDay.GetForecast(rnd);
             recipe.RecipeStart(player);
             Console.Clear();
-            player.item.DisplayInventory();
+            player.inventory.DisplayInventory();
             runDay.GetTotalCustomers(rnd, recipe);
-            player.SellLemonade(runDay.customer);
-            player.item.DisplayInventory();
+            player.SellLemonade(runDay.customers);
+            player.inventory.DisplayInventory();
             double dayEarning = runDay.CalculateDaysEarnings(player, recipe);
             double dayProfit = runDay.CalculateDayProfit(store);
             double runningProfit = CalculateDayOneProfit(dayProfit);
@@ -105,11 +105,11 @@ namespace LemonadeStand_3DayStarter
         }
         public void AddProfit(double totalProfit)
         {
-            player.item.money = totalProfit + player.item.money;
+            player.inventory.money = totalProfit + player.inventory.money;
         }
         public void EndOfDay()
         {
-            if (player.item.money <= 0)
+            if (player.inventory.money <= 0)
             {
                 Console.WriteLine("You have no more money!");
                 Console.WriteLine("GAME OVER");
@@ -130,14 +130,14 @@ namespace LemonadeStand_3DayStarter
                     runDay.DisplayDay();
                     store.StoreStart(player);
                     Console.Clear();
-                    runDay.Weather(rnd);
-                    runDay.Forecast(rnd);
+                    runDay.GetWeather(rnd);
+                    runDay.GetForecast(rnd);
                     recipe.RecipeStart(player);
                     Console.Clear();
-                    player.item.DisplayInventory();
+                    player.inventory.DisplayInventory();
                     runDay.GetTotalCustomers(rnd, recipe);
-                    player.SellLemonade(runDay.customer);
-                    player.item.DisplayInventory();
+                    player.SellLemonade(runDay.customers);
+                    player.inventory.DisplayInventory();
                     double dayEarning = runDay.CalculateDaysEarnings(player, recipe);
                     double dayProfit = runDay.CalculateDayProfit(store);
                     double runningProfit = CalculateDayOneProfit(dayProfit);
@@ -154,7 +154,7 @@ namespace LemonadeStand_3DayStarter
                 {
                     Console.WriteLine("Congrats on pulling through this week!\n\n Game Over :D");
                     Console.ReadKey();
-                    player.item.DisplayInventory();
+                    player.inventory.DisplayInventory();
                     return;
                 }
             }

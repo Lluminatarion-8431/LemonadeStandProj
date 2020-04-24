@@ -22,19 +22,19 @@ namespace LemonadeStand_3DayStarter
         //Member methods (what it does)//
         public int GetPriceDemand(Recipe recipe)
         {
-            if (recipe.lemonadePrice <= .50)
+            if (recipe.pricePerCup <= .50)
             {
                 priceDemand = 1;
             }
-            else if (recipe.lemonadePrice >= .51 && recipe.lemonadePrice <= .75)
+            else if (recipe.pricePerCup >= .51 && recipe.pricePerCup <= .75)
             {
                 priceDemand = 2;
             }
-            else if (recipe.lemonadePrice >= .76 && recipe.lemonadePrice <= 1.00)
+            else if (recipe.pricePerCup >= .76 && recipe.pricePerCup <= 1.00)
             {
                 priceDemand = 3;
             }
-            else if (recipe.lemonadePrice >= 1.01)
+            else if (recipe.pricePerCup >= 1.01)
             {
                 priceDemand = 4;
             }
